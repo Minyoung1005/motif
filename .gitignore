@@ -162,6 +162,7 @@ cython_debug/
 *.png
 *.gif
 *.mp4
+!docs/**/*
 
 data/
 *.ttf
