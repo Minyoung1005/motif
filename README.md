@@ -103,7 +103,7 @@ MotIF
 ```
 
 ## Metadata (EEF trajectories, language annotations, image and video paths, ...)
-For human and robot demonstrations in MotIF-1K, we provide `data_info.json` that includes trajectory index, number of timesteps, end-effector (EEF) trajectory, image and video paths, task instruction, and motion description for each episode. For instance, `data/MotIF/stretch_motion_data_info.json` contains a list of dictionaries as follows:
+For human and robot demonstrations in MotIF-1K, we provide `data_info.json` that includes trajectory index, number of timesteps, end-effector (EEF) trajectory in the image, image and video paths, task instruction, and motion description for each episode. For instance, `data/MotIF/stretch_motion_data_info.json` contains a list of dictionaries as follows:
 ```
 [
     {
@@ -119,6 +119,8 @@ For human and robot demonstrations in MotIF-1K, we provide `data_info.json` that
     },
 ]
 ```
+
+*Note*: A subset of our robot demonstrations contain agent joint states and end effector trajectories in real 3D space. Please reach out to the first author to get access to this data.
 
 # Custom Data Collection
 ## Setup Camera Devices
