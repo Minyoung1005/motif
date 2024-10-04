@@ -6,7 +6,7 @@ deepspeed --master_port 60000 llava/train/train_mem.py \
     --deepspeed ./scripts/zero3.json \
     --model_name_or_path liuhaotian/llava-v1.5-7b \
     --version v1 \
-    --data_path ../data/LLAVA/co_training/human_full_653_robot_0512v3_0526v1_train_100_key9_wo_traj.json \
+    --data_path ../data/MotIF/cotrain/human_full_653_robot_train_100.json \
     --image_folder ./playground/data \
     --vision_tower openai/clip-vit-large-patch14-336 \
     --mm_projector_type mlp2x_gelu \
