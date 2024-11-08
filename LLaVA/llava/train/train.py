@@ -258,6 +258,8 @@ class DataArguments:
 @dataclass
 class TrainingArguments(transformers.TrainingArguments):
     wandb_project_name: Optional[str] = field(default="vlm-motion")
+    unfreeze_mm_vision_tower: bool = field(default=False)
+    mm_vision_tower_lr: Optional[float] = None
     cache_dir: Optional[str] = field(default=None)
     optim: str = field(default="adamw_torch")
     remove_unused_columns: bool = field(default=False)
