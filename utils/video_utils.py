@@ -5,6 +5,9 @@ from matplotlib import animation
 import matplotlib.pyplot as plt
 import numpy as np
 import copy
+from PIL import Image
+import base64
+from io import BytesIO
 
 def save_frames_as_gif(frames, path='./', filename='gym_animation.gif'):
 
@@ -211,3 +214,41 @@ def visualize_trajectory_on_multiple_frames(images, eef_positions_2d, output_fol
 
     if save_video:
         save_video(motion_images, os.path.join(os.path.dirname(output_folder), 'traj{}.mp4'.format(episode_idx)))
+
+def encode_image_raw(image):
+    # Convert the PIL image to a base64 string
+    buffered = BytesIO()
+    image.save(buffered, format="JPEG")
+    return base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+def sample_frames(video_path, N, encode=False):
+    # Open the video file
+    video = cv2.VideoCapture(video_path)
+    total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+    
+    # Calculate sampling interval
+    sample_indices = np.linspace(0, total_frames - 1, N, dtype=int)
+    frames = []
+    
+    for idx in sample_indices:
+        # Set the video to the frame position
+        video.set(cv2.CAP_PROP_POS_FRAMES, idx)
+        success, frame = video.read()
+        
+        if success:
+            # Convert the frame from BGR (OpenCV default) to RGB
+            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            # Convert the frame to a PIL Image
+            pil_image = Image.fromarray(frame_rgb)
+            if encode:
+                # Encode the image to base64
+                frames.append(encode_image_raw(pil_image))
+            else:
+                frames.append(pil_image)
+        else:
+            print(f"Frame at index {idx} could not be read.")
+    
+    # Release the video object
+    video.release()
+    
+    return frames

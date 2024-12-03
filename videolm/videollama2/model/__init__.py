@@ -95,10 +95,9 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         if hasattr(config, 'quantization_config'):
             del config.quantization_config
         if model_base == "VideoLLaMA2-7B":
-            # model_base = "DAMO-NLP-SG/VideoLLaMA2-7B"
-            model_base = "/home/mhwang2/Projects/VideoLLaMA2/VideoLLaMA2-7B"
+            model_base = "DAMO-NLP-SG/VideoLLaMA2-7B"
         tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False, token=token)
-        print('Loading VideoLLaMA lora model...')
+        print('Loading MotIF video model...')
 
         if 'vicuna' in model_base.lower():
             model = Videollama2LlamaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=config, **kwargs)

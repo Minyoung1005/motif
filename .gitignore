@@ -177,3 +177,4 @@ LLaVA/controller.log.*
 LLaVA/*-conv.json
 LLaVA/gradio_web_server.log.*
 LLaVA/serve_images/*
+.hf_token

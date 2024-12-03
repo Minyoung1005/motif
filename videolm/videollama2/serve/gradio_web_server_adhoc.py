@@ -179,10 +179,8 @@ def clear_history(message, chatbot):
 # 2. The operation or tensor which requires cuda are limited in those functions wrapped via spaces.GPU
 # 3. The function can't return tensor or other cuda objects.
 
-# model_path = 'DAMO-NLP-SG/VideoLLaMA2.1-7B-16F'
-# model_path = 'DAMO-NLP-SG/VideoLLaMA2.1-7B-16F'
-# model_path = "/home/mhwang2/Projects/VideoLLaMA2/VideoLLaMA2-7B"
-model_path = "/home/mhwang2/Projects/VideoLLaMA2/data/videollama2_vllava/finetune_clip_7b_8f_train_ep30_lora_gear_1125/checkpoint-1679"
+model_path = 'DAMO-NLP-SG/VideoLLaMA2.1-7B-16F'
+# model_path = "VideoLLaMA2-7B"
 
 handler = Chat(model_path, load_8bit=False, load_4bit=True)
 
