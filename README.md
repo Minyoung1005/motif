@@ -16,6 +16,7 @@ Feel free to reach out to [myhwang@mit.edu](myhwang@mit.edu) for further questio
 # Table of Contents
 - [MotIF: Motion Instruction Fine-tuning](#motif-motion-instruction-fine-tuning)
 - [Table of Contents](#table-of-contents)
+- [Release](#release)
 - [Dependencies](#dependencies)
 - [MotIF-1K Dataset](#motif-1k-dataset)
   - [Visual Motion Representations](#visual-motion-representations)
@@ -37,6 +38,10 @@ Feel free to reach out to [myhwang@mit.edu](myhwang@mit.edu) for further questio
 - [Run your own Gradio Server with Web UI](#run-your-own-gradio-server-with-web-ui)
 - [Troubleshooting](#troubleshooting)
 
+# Release
+
+- [2024/12/02] MotIF model using a video LM architecture is now added to the codebase.
+- [2024/10/03] MotIF model and dataset released!
 
 # Dependencies
 ```
